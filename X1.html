@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disaster Awareness Program</title>
+<style>
+    body {
+        font-family: cursive;
+        margin: 0;
+        padding: 0;
+        background-color: #eded97;
+    }
+    #container {
+        width: 90%;
+        height: 100%;
+        margin: 20px auto;
+        background-color: #1a0460;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 3px 3px rgb(47, 67, 178), -1em 0 .4em rgb(111, 111, 58);;
+    }
+    h1 {
+        text-align: center;
+        color: #e406a5ef;
+    }
+    h2{
+        color: #f6f2f2;
+    }
+    h3{
+        color: #c91f1f;
+    }
+    h5{
+        color: aqua;
+    }
+    p {
+        color: #a0f40e;
+    }
+    ul {
+        list-style-type: disc;
+        padding: 10px; 
+    }
+    li {
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: hsla(200, 62%, 52%, 0.718);
+        color: #1c0950;
+        border: none;
+        border-radius: 50% 20% / 10% 40%;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #bfdf89;
+    }
+    #quiz-container {
+        display: none;
+    }
+    
+    #video-container {
+        display: none; 
+        margin: 20px auto;
+        width: 80%;
+    }
+    video {
+        width: 80%;
+        height: 50%;
+    }
+    
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="container">
+    <h1>Disaster Management Awareness Program</h1>
+    <hr>
+
+    <h2>Learn how to prepare for and respond to different types of disasters.</h2>
+    <ul id="menu">
+        <li>
+            <button onclick="learnAboutDisasters()">AWARENESS QUIZ</button>
+             <div id="quiz-container">
+                  <h3>Multiple Choice Question :-</h3>
+                   <h5>QUESTION 1</h5>
+                   <p>There is an earthquake and you are inside your house,what is the first thing you do?</p>
+                              <form id="quiz-form">
+                                  <input type="radio" id="option1" name="answer" value="RUN OUTSIDE">
+                                  <label for="option1">RUN OUTSIDE</label><br>
+
+                                  <input type="radio" id="option2" name="answer" value="HIDE UNDER TABLE">
+                                  <label for="option2">HIDE UNDER TABLE</label><br>
+
+                                  <input type="radio" id="option3" name="answer" value="POST SOCIAL MEDIA">
+                                  <label for="option3">POST SOCIAL MEDIA</label><br>
+
+                                  <input type="radio" id="option4" name="answer" value="GET IN THE ELEVATOR">
+                                  <label for="option4">GET IN THE ELEVATOR</label><br>
+
+                                  <button type="button" onclick="showSolution()">Submit</button>
+                              </form>
+
+                              <div id="solution-video-container" style="display: none;">
+                                  <h2>Solution</h2>
+                                  <video id="solution-video" controls>
+                                      Your browser does not support the video tag.
+                                  </video>
+                              </div>
+
+                              <script>
+                                function learnAboutDisasters() {
+    
+    var quizContainer = document.getElementById("quiz-container");
+    quizContainer.style.display = "block";
+}
+                              function showSolution() {
+                                  
+                                  var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+
+                                
+                                  if (selectedAnswer) {
+                                      // Create the video player
+                                      var solutionVideoContainer = document.getElementById("solution-video-container");
+                                      var solutionVideo = document.getElementById("solution-video");
+                                      var solutionVideoSource = "";
+
+                                      // Set the source of the video based on the selected answer
+                                      if (selectedAnswer.value === "HIDE UNDER TABLE") {
+                    alert("Correct!") ;
+                } else if (selectedAnswer.value === "RUN OUTSIDE") {
+                    alert("incorrect!")
+                    solutionVideoSource = "video 1.mp4";
+                }  else if (selectedAnswer.value === "POST SOCIAL MEDIA") {
+                    alert("incorrect!")
+                    solutionVideoSource = "video 1.mp4";
+                }   else if (selectedAnswer.value === "GET IN THE ELEVATOR") {
+                    alert("incorrect!")
+                    solutionVideoSource = "video 1.mp4";
+                }
+
+                // Set the source of the video player and display it
+                solutionVideo.src = solutionVideoSource;
+                solutionVideoContainer.style.display = "block";
+            } else {
+                alert("Please select an answer.");
+            }
+        }
+</script>
+
+        <li><button onclick="displayPreparednessChecklist()">Disaster preparedness checklist</button></li>
+        <li><button onclick="displayEmergencyContacts()">Emergency contact information</button></li>
+    </ul>
+</div>
+
+<script>
+    // Function to display information about different types of disasters
+   
+        
+ 
+    // Function to display disaster preparedness checklist
+    function displayPreparednessChecklist() {
+        alert("Disaster Preparedness Checklist:\n- Make an emergency plan with your family\n- Build an emergency kit with essential supplies\n- Stay informed about potential hazards in your area\n- Practice evacuation routes and drills regularly");
+                                                        
+function openVideoPlayer2() {
+    // Get the video container element
+    var videoContainer = document.getElementById("video-container");
+
+    // Check if the video player has already been created
+    if (!videoContainer.hasChildNodes()) {
+        // If not, create the video player
+        var videoPlayer = document.createElement("video");
+        videoPlayer.src = "video 2.mp4"; // Set the video source
+        videoPlayer.controls = true; // Add playback controls
+        videoPlayer.autoplay = true; // Autoplay the video
+        videoContainer.appendChild(videoPlayer); // Append the video player to the container
+    }
+
+    // Show the video container
+    videoContainer.style.display = "block";
+}
+    }
+
+    
+
+    // Function to display emergency contact information
+    function displayEmergencyContacts() {
+        alert("Emergency Contact Information:\n- Police: 100\n- Fire department: 112\n- Medical emergency: 107");
+        // Add more emergency contacts as needed
+    }
+</script>
+<hr>
+<HR>
+    <hr>
+<footer>
+    <h4>PROJECT BY:-
+        <nav>Amrut Jaiswal</nav>
+        <nav>II sem (EE)</nav>
+        <nav>amuasbaran7779@gmail.com</nav>
+        JEC
+    </h4>
+    
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
